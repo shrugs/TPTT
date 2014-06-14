@@ -54,14 +54,6 @@ module.exports = function (grunt) {
           livereload: true
         }
       },
-      mochaTest: {
-        files: ['test/server/{,*/}*.js'],
-        tasks: ['mochaTest']
-      },
-      jsTest: {
-        files: ['test/client/spec/{,*/}*.js'],
-        tasks: ['newer:jshint:test', 'karma']
-      },
       styles: {
         files: ['<%= yeoman.app %>/styles/{,*/}*.css'],
         tasks: ['newer:copy:styles', 'autoprefixer']
@@ -258,22 +250,22 @@ module.exports = function (grunt) {
       }
     },
 
-    htmlmin: {
-      dist: {
-        options: {
-          //collapseWhitespace: true,
-          //collapseBooleanAttributes: true,
-          //removeCommentsFromCDATA: true,
-          //removeOptionalTags: true
-        },
-        files: [{
-          expand: true,
-          cwd: '<%= yeoman.app %>/views',
-          src: ['*.html', 'partials/**/*.html'],
-          dest: '<%= yeoman.dist %>/views'
-        }]
-      }
-    },
+    // htmlmin: {
+    //   dist: {
+    //     options: {
+    //       //collapseWhitespace: true,
+    //       //collapseBooleanAttributes: true,
+    //       //removeCommentsFromCDATA: true,
+    //       //removeOptionalTags: true
+    //     },
+    //     files: [{
+    //       expand: true,
+    //       cwd: '<%= yeoman.app %>/views',
+    //       src: ['*.html', 'partials/**/*.html'],
+    //       dest: '<%= yeoman.dist %>/views'
+    //     }]
+    //   }
+    // },
 
     // Allow the use of non-minsafe AngularJS files. Automatically makes it
     // minsafe compatible so Uglify does not destroy the ng references
@@ -329,6 +321,11 @@ module.exports = function (grunt) {
             'server.js',
             'lib/**/*'
           ]
+        },
+        {
+            expand: true,
+            src: ['*.html', 'partials/**/*.html'],
+            dest: '<%= yeoman.dist %>/views'
         }]
       },
       styles: {
@@ -360,7 +357,7 @@ module.exports = function (grunt) {
         'copy:styles',
         'imagemin',
         'svgmin',
-        'htmlmin'
+        // 'htmlmin'
       ]
     },
 
@@ -389,21 +386,6 @@ module.exports = function (grunt) {
     // concat: {
     //   dist: {}
     // },
-
-    // Test settings
-    karma: {
-      unit: {
-        configFile: 'karma.conf.js',
-        singleRun: true
-      }
-    },
-
-    mochaTest: {
-      options: {
-        reporter: 'spec'
-      },
-      src: ['test/server/**/*.js']
-    },
 
     env: {
       test: {
@@ -509,7 +491,6 @@ module.exports = function (grunt) {
 
   grunt.registerTask('default', [
     'newer:jshint',
-    'test',
     'build'
   ]);
 };

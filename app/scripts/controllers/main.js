@@ -4,6 +4,7 @@ angular.module('tpttApp')
 .controller('MainCtrl', function ($scope, IO) {
     $scope.state = {};
     $scope.lastWinner = 'None';
+    $scope.leaderboard = [];
     IO.on('keypress', function(key) {
         $scope.$broadcast('keypress', key);
     });

@@ -8,7 +8,7 @@ angular.module('tpttApp')
         scope: {
             state: '='
         },
-        link: function ($scope, element, attrs) {
+        link: function ($scope) {
 
 
             angular.element(document).keydown(function(e){
