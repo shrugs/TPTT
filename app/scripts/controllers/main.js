@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('tpttApp')
-.controller('MainCtrl', function ($scope, IO) {
+.controller('MainCtrl', function ($scope, IO, $timeout) {
     $scope.state = {};
     $scope.lastWinner = 'None';
     $scope.leaderboard = [];
@@ -19,6 +19,13 @@ angular.module('tpttApp')
 
     IO.on('join', function(userID) {
         $scope.userID = userID;
+    });
+
+    IO.on('mistake', function(userID) {
+        $scope.mistakePerson = userID;
+        $timeout(function() {
+            $scope.mistakePerson = undefined;
+        }, 150);
     });
 
     IO.on('finish', function(data) {

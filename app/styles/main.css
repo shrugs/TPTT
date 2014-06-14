@@ -9,3 +9,22 @@
 th {
     text-align: center;
 }
+
+.container {
+    position: relative;
+}
+
+.big-id {
+    font-size: 100px;
+}
+.large-heading {
+    font-size: 80px;
+}
+.overlay {
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 999;
+    background-color: red;
+}
