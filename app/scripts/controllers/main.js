@@ -10,6 +10,10 @@ angular.module('tpttApp')
     });
 
     IO.on('set:state', function(state) {
+        $scope.state = angular.extend($scope.state, state);
+    });
+
+    IO.on('set:state:base', function(state) {
         $scope.state = state;
     });
 
