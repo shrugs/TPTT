@@ -6,7 +6,8 @@
     "lodash": "~2.4.1",
     "ejs": "~0.8.4",
     "socket.io": "~1.0.4",
-    "socket.io-client": "~1.0.4"
+    "socket.io-client": "~1.0.4",
+    "keycode": "~0.3.0"
   },
   "devDependencies": {
     "grunt": "~0.4.1",
