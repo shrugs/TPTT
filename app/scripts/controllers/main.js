@@ -23,4 +23,15 @@ angular.module('tpttApp')
     $scope.$on('ttkeycode', function(e, keyCode) {
         IO.emit('keycode', keyCode);
     });
+
+    $scope.toggleType = function() {
+        if ($scope.type === 'words') {
+            $scope.type = 'numbers';
+        } else {
+            $scope.type = 'words';
+        }
+
+        IO.emit('change:type', $scope.type);
+
+    };
 });
