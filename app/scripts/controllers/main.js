@@ -2,9 +2,14 @@
 
 angular.module('tpttApp')
 .controller('MainCtrl', function ($scope, IO) {
-    $scope.text = 'testing';
+    $scope.state = {};
     IO.on('keypress', function(key) {
         $scope.$broadcast('keypress', key);
+    });
+
+    IO.on('set:state', function(state) {
+        console.log(state);
+        $scope.state = state;
     });
 
     $scope.$on('ttkeycode', function(e, keyCode) {
