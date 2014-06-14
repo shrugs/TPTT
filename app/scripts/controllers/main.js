@@ -3,6 +3,7 @@
 angular.module('tpttApp')
 .controller('MainCtrl', function ($scope, IO) {
     $scope.state = {};
+    $scope.lastWinner = 'None';
     IO.on('keypress', function(key) {
         $scope.$broadcast('keypress', key);
     });
@@ -17,7 +18,7 @@ angular.module('tpttApp')
     });
 
     IO.on('finish', function(data) {
-        $scope.winner = data.lastEventCause;
+        // $scope.lastWinner = data.lastEventCause;
     });
 
     $scope.$on('ttkeycode', function(e, keyCode) {
