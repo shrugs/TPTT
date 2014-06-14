@@ -1,12 +1,21 @@
 <div class="tt-cont col-xs-12">
-    <div class="tt-text">
-        <span class="tt-letter" ng-repeat="letter in state.letters" ng-model="letter" ng-class="{'tt-highlighted': letter.highlighted}">{{letter.text}}</span>
+    <div class"row">
+        <div class="tt-text">
+            <span class="tt-letter" ng-repeat="letter in state.letters" ng-model="letter" ng-class="{'tt-highlighted': letter.highlighted}">{{letter.text}}</span>
+        </div>
+        <div class="tt-input">
+            <form role="form" ng-submit="">
+              <div class="form-group">
+                <input type="text" class="form-control" ng-model="ttinput" placeholder="Focus me to Type">
+              </div>
+          </form>
+        </div>
     </div>
-    <div class="tt-input">
-        <form role="form" ng-submit="">
-          <div class="form-group">
-            <input type="text" class="form-control" ng-model="ttinput" placeholder="Focus me to Type">
-          </div>
-      </form>
+    <div class="row tt-stat">
+        <div class="col-xs-4 col-sm-4 col-md-4 col-lg-4" ng-repeat="stat in state.stats">
+            <div class="stat-title">{{stat.name}}</div>
+            <div class="stat-local"><span class="text-info">{{stat.local}}</span></div>
+            <div class="stat-total"><span class="text-muted">{{stat.total}}</span></div>
+        </div>
     </div>
 </div>
