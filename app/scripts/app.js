@@ -4,17 +4,21 @@ angular.module('tpttApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'btford.socket-io',
 ])
-  .config(function ($routeProvider, $locationProvider) {
+.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-      .when('/', {
+    .when('/', {
         templateUrl: 'partials/main',
         controller: 'MainCtrl'
-      })
-      .otherwise({
+    })
+    .otherwise({
         redirectTo: '/'
-      });
-      
+    });
+
     $locationProvider.html5Mode(true);
-  });
+})
+.factory('IO', function (socketFactory) {
+  return socketFactory();
+});

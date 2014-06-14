@@ -17,13 +17,18 @@ var app = express();
 // Express settings
 require('./lib/config/express')(app);
 
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
+
 // Routing
-require('./lib/routes')(app);
+require('./lib/routes')(app, io);
 
 // Start server
-app.listen(config.port, function () {
+http.listen(config.port, function () {
   console.log('Express server listening on port %d in %s mode', config.port, app.get('env'));
 });
+
+
 
 // Expose app
 exports = module.exports = app;
