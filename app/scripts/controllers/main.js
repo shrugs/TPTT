@@ -2,13 +2,12 @@
 
 angular.module('tpttApp')
 .controller('MainCtrl', function ($scope, IO) {
-    $scope.text = 'testing!';
+    $scope.text = 'testing';
     IO.on('keypress', function(key) {
         $scope.$broadcast('keypress', key);
     });
 
     $scope.$on('ttkeycode', function(e, keyCode) {
-        console.log(keyCode);
         IO.emit('keycode', keyCode);
     });
 });
