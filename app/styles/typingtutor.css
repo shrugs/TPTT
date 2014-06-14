@@ -1,3 +1,20 @@
 .tt-highlighted {
     color: red;
 }
+
+.tt-text, .tt-input {
+    text-align: center;
+}
+.tt-text {
+    font-size: 50px;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+@media screen and (-webkit-min-device-pixel-ratio:0) {
+ select:focus, textarea:focus, input:focus {
+ font-size: 16px;
+ background:#eee;
+  }
+ }
