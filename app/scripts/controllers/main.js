@@ -9,7 +9,6 @@ angular.module('tpttApp')
     });
 
     IO.on('set:state', function(state) {
-        console.log(state);
         $scope.state = state;
     });
 
@@ -18,7 +17,7 @@ angular.module('tpttApp')
     });
 
     IO.on('finish', function(data) {
-        // $scope.lastWinner = data.lastEventCause;
+        $scope.leaderboard = data.leaderboard;
     });
 
     $scope.$on('ttkeycode', function(e, keyCode) {
