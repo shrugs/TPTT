@@ -5,6 +5,7 @@ angular.module('tpttApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
+  'ngAnimate',
   'btford.socket-io',
 ])
 .config(function ($routeProvider, $locationProvider) {
