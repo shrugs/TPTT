@@ -12,6 +12,14 @@ angular.module('tpttApp')
         $scope.state = state;
     });
 
+    IO.on('join', function(userID) {
+        $scope.userID = userID;
+    });
+
+    IO.on('finish', function(data) {
+        $scope.winner = data.lastEventCause;
+    });
+
     $scope.$on('ttkeycode', function(e, keyCode) {
         IO.emit('keycode', keyCode);
     });
